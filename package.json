@@ -8,7 +8,7 @@
   ],
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "cd packages/core && npm install && cd ../.. && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
