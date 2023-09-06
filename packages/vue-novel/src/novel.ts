@@ -6,7 +6,7 @@ export default {
     }
     app.component(
       'novel-editor',
-      defineAsyncComponent(() => import('@/components/novel-editor.vue'))
+      defineAsyncComponent(() => import('./components/novel-editor.vue'))
     )
   }
 }

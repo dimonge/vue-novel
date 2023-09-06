@@ -11,7 +11,7 @@ export default defineConfig({
   logLevel: 'info',
   build: {
     lib: {
-      entry: fileURLToPath(new URL('./novel.ts', import.meta.url)),
+      entry: fileURLToPath(new URL('./src/novel.ts', import.meta.url)),
       name: 'NovelVue',
       fileName: 'novel-vue'
     },
