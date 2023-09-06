@@ -18,6 +18,22 @@
         <component :is="item.icon" class="w-5 h-5" />
       </button>
     </bubble-menu>
+    <floating-menu
+      class="floating-menu"
+      :tippy-options="{ duration: 100 }"
+      v-if="editor"
+      :editor="editor"
+    >
+      <button
+        v-for="item in items"
+        :key="item.name"
+        @click="item.command()"
+        :class="{ 'is-active': item.isActive() }"
+        class="flex items-center justify-center w-10 h-10"
+      >
+        <component :is="item.icon" class="w-5 h-5" />
+      </button>
+    </floating-menu>
     <editor-content
       :editor="editor"
       class="relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg"
@@ -28,7 +44,7 @@
 <script lang="ts">
 import '../styles/tailwind.css'
 import { defineComponent } from 'vue'
-import { useEditor, EditorContent, BubbleMenu, Editor } from '@tiptap/vue-3'
+import { useEditor, EditorContent, BubbleMenu, Editor, FloatingMenu } from '@tiptap/vue-3'
 import { InputRule } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
@@ -40,6 +56,7 @@ import TextStyle from '@tiptap/extension-text-style'
 import { Color } from '@tiptap/extension-color'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
+
 import { Markdown } from 'tiptap-markdown'
 import Highlight from '@tiptap/extension-highlight'
 
@@ -55,7 +72,8 @@ export default defineComponent({
   name: 'VueNovel',
   components: {
     EditorContent,
-    BubbleMenu
+    BubbleMenu,
+    FloatingMenu
   },
   props: {
     extensions: {
@@ -466,6 +484,26 @@ export default defineComponent({
       > div {
         flex: 1 1 auto;
       }
+    }
+  }
+}
+.floating-menu {
+  display: flex;
+  background-color: #ffffff;
+  padding: 0.1rem;
+  border-radius: 0.1rem;
+  border: 1px solid #0d0d0d10;
+  button {
+    border: none;
+    background: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0 0.2rem;
+    opacity: 0.6;
+
+    &:hover,
+    &.is-active {
+      opacity: 1;
     }
   }
 }
