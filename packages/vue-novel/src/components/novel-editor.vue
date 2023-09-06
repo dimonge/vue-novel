@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import '../styles/index.css'
+import '../styles/tailwind.css'
 import { defineComponent } from 'vue'
 import { useEditor, EditorContent, BubbleMenu, Editor } from '@tiptap/vue-3'
 import { InputRule } from '@tiptap/core'
@@ -79,7 +79,7 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
-    editorProps: {
+    customEditorProps: {
       type: Object,
       default: () => ({})
     },
@@ -95,6 +95,12 @@ export default defineComponent({
   setup(props) {
     const editor = useEditor({
       content: props.content || defaultEditorContent,
+      editorProps: {
+        attributes: {
+          class:
+            'prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none'
+        }
+      },
       extensions: [
         StarterKit.configure({
           bulletList: {
@@ -167,7 +173,12 @@ export default defineComponent({
               'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer'
           }
         }),
-        TiptapImage,
+        TiptapImage.configure({
+          allowBase64: true,
+          HTMLAttributes: {
+            class: 'rounded-lg border border-stone-200 mt-6'
+          }
+        }),
         Placeholder.configure({
           placeholder: ({ node }) => {
             if (node.type.name === 'heading') {
@@ -212,7 +223,7 @@ export default defineComponent({
         ...props.extensions
       ],
       autofocus: 'end',
-      ...props.editorProps
+      ...props.customEditorProps
     })
 
     let editorMenu = ['bold', 'italic', 'underline', 'strike', 'code'].map((name: string) => {
@@ -257,3 +268,205 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss">
+.editor {
+  background-color: #fff;
+  border: 3px solid #0d0d0d;
+  border-radius: 0.75rem;
+  color: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  max-height: 26rem;
+
+  &__header {
+    align-items: center;
+    background: #0d0d0d;
+    border-bottom: 3px solid #0d0d0d;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: 0.25rem;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 1.25rem 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__footer {
+    align-items: center;
+    border-top: 3px solid #0d0d0d;
+    color: #0d0d0d;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Some information about the status */
+  &__status {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+
+    &::before {
+      background: rgba(#0d0d0d, 0.5);
+      border-radius: 50%;
+      content: ' ';
+      display: inline-block;
+      flex: 0 0 auto;
+      height: 0.5rem;
+      margin-right: 0.5rem;
+      width: 0.5rem;
+    }
+
+    &--connecting::before {
+      background: #616161;
+    }
+
+    &--connected::before {
+      background: #b9f18d;
+    }
+  }
+
+  &__name {
+    button {
+      background: none;
+      border: none;
+      border-radius: 0.4rem;
+      color: #0d0d0d;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+
+      &:hover {
+        background-color: #0d0d0d;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* Give a remote user a caret */
+.collaboration-cursor__caret {
+  border-left: 1px solid #0d0d0d;
+  border-right: 1px solid #0d0d0d;
+  margin-left: -1px;
+  margin-right: -1px;
+  pointer-events: none;
+  position: relative;
+  word-break: normal;
+}
+
+/* Render the username above the caret */
+.collaboration-cursor__label {
+  border-radius: 3px 3px 3px 0;
+  color: #0d0d0d;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  left: -1px;
+  line-height: normal;
+  padding: 0.1rem 0.3rem;
+  position: absolute;
+  top: -1.4em;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Basic editor styles */
+.tiptap {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0d0d0d;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+
+    code {
+      background: none;
+      color: inherit;
+      font-size: 0.8rem;
+      padding: 0;
+    }
+  }
+
+  mark {
+    background-color: #faf594;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  hr {
+    margin: 1rem 0;
+  }
+
+  blockquote {
+    border-left: 2px solid rgba(#0d0d0d, 0.1);
+    padding-left: 1rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0d0d0d, 0.1);
+    margin: 2rem 0;
+  }
+
+  ul[data-type='taskList'] {
+    list-style: none;
+    padding: 0;
+
+    li {
+      align-items: center;
+      display: flex;
+
+      > label {
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+        user-select: none;
+      }
+
+      > div {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
+</style>
