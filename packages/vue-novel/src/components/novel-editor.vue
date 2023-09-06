@@ -4,10 +4,11 @@
       class="flex w-fit divide-x divide-stone-200 rounded border border-stone-200 bg-white shadow-xl"
       v-if="editor"
       :editor="editor"
-      @mousedown="(e) => handleEvent(e)"
-      @keydown="(e) => handleEvent(e)"
       :tippy-options="{ duration: 100 }"
     >
+      <button @mousedown="(e) => handleEvent(e)" class="flex items-center justify-center w-10 h-10">
+        <Wand2 class="w-5 h-5" />
+      </button>
       <button
         v-for="item in items"
         :key="item.name"
@@ -20,7 +21,7 @@
     </bubble-menu>
     <floating-menu
       class="floating-menu"
-      :tippy-options="{ duration: 100 }"
+      :tippy-options="{ duration: 100, placement: 'top' }"
       v-if="editor"
       :editor="editor"
     >
@@ -60,12 +61,18 @@ import TaskList from '@tiptap/extension-task-list'
 import { Markdown } from 'tiptap-markdown'
 import Highlight from '@tiptap/extension-highlight'
 
-import { BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, CodeIcon } from 'lucide-vue-next'
+import {
+  BoldIcon,
+  ItalicIcon,
+  UnderlineIcon,
+  StrikethroughIcon,
+  CodeIcon,
+  Wand2
+} from 'lucide-vue-next'
 
 import SlashCommand from './command/commands.js'
 import suggestion from './command/suggestion.js'
-import MenuSelectors from './bubble-menu/menu-selectors.vue'
-import { fetchCompletion } from '../utils/ai'
+import { fetchCompletion } from '../utils/completion-ai'
 import { defaultEditorContent } from '../editor/default-content'
 
 export default defineComponent({
@@ -73,14 +80,15 @@ export default defineComponent({
   components: {
     EditorContent,
     BubbleMenu,
-    FloatingMenu
+    FloatingMenu,
+    Wand2
   },
   props: {
     extensions: {
       type: Array,
       default: () => []
     },
-    content: {
+    initialContent: {
       type: [String, null],
       default: null
     },
@@ -108,11 +116,15 @@ export default defineComponent({
     onUpdate: {
       type: Function,
       default: () => {}
+    },
+    useServerAPI: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
     const editor = useEditor({
-      content: props.content || defaultEditorContent,
+      content: props.initialContent || defaultEditorContent,
       editorProps: {
         attributes: {
           class:
@@ -202,7 +214,7 @@ export default defineComponent({
             if (node.type.name === 'heading') {
               return `Heading ${node.attrs.level}`
             }
-            return "Press '/' for commands, or '++' for AI autocomplete..."
+            return "Press '/' for commands AI autocomplete..."
           },
           includeChildren: true
         }),
@@ -220,15 +232,7 @@ export default defineComponent({
           },
           nested: true
         }),
-        Placeholder.configure({
-          placeholder: ({ node }) => {
-            if (node.type.name === 'heading') {
-              return `Heading ${node.attrs.level}`
-            }
-            return "Press '/' for commands, or '++' for AI autocomplete..."
-          },
-          includeChildren: true
-        }),
+
         SlashCommand.configure({
           suggestion
         }),
@@ -244,7 +248,12 @@ export default defineComponent({
       ...props.customEditorProps
     })
 
-    let editorMenu = ['bold', 'italic', 'underline', 'strike', 'code'].map((name: string) => {
+    let editorMenu: Array<{
+      name: string
+      isActive: () => boolean
+      command: () => void
+      icon: any
+    }> = ['bold', 'italic', 'underline', 'strike', 'code'].map((name: string) => {
       const icon = {
         bold: BoldIcon,
         italic: ItalicIcon,
@@ -263,11 +272,10 @@ export default defineComponent({
     if (!props.showDefaultMenu) {
       editorMenu = props.customEditorMenu
     } else {
-      editorMenu = [...editorMenu, ...props.customEditorMenu]
+      editorMenu = editorMenu.concat(props.customEditorMenu)
     }
 
-    const handleEvent = async (event) => {
-      // Perform your event check logic here
+    const handleEvent = async (event: any) => {
       if (event.type === 'mousedown' || event.keyCode === 'z') {
         const { from, to } = editor.value.state.selection
         const selectedText = editor.value.getText().substring(from, to)
@@ -479,5 +487,12 @@ export default defineComponent({
       opacity: 1;
     }
   }
+}
+.tiptap p.is-empty::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
 }
 </style>

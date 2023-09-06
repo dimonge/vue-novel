@@ -2,10 +2,10 @@
   <div class="items">
     <template v-if="items.length">
       <button
-        class="item"
-        :class="{ 'is-selected': index === selectedIndex }"
         v-for="(item, index) in items"
         :key="index"
+        :class="{ 'is-selected': index === selectedIndex }"
+        class="item"
         @click="selectItem(index)"
       >
         <div class="flex flex-row">
@@ -22,7 +22,7 @@
 import { Editor } from '@tiptap/vue-3'
 import VA from '@vercel/analytics'
 
-import { fetchCompletion } from '../../utils/ai'
+import { fetchCompletion } from '../../utils/completion-ai'
 
 export default {
   props: {
@@ -94,10 +94,9 @@ export default {
         VA.track('GPT-3 Command Used', {
           command: item.title
         })
-        console.log(this.editor)
-        const { from, to } = this.editor.view.state.selection
-        const selectedText = this.editor.getText().substring(from, to)
-        const completion = await fetchCompletion(selectedText)
+        //const { from, to } = this.editor.view.state.selection
+        //const selectedText = this.editor.getText().substring(from, to)
+        const completion = await fetchCompletion(this.editor.getText())
         // Insert the completion into the editor
         this.editor.chain().insertContent(completion).run()
       } else if (item.command) {
@@ -137,3 +136,4 @@ export default {
   }
 }
 </style>
+../../utils/completion-ai

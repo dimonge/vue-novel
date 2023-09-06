@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  env: {
+    openaiApiKey: process.env.OPENAI_API_KEY,
+  },
   build: {
     transpile: ["radix-vue"],
   },
@@ -11,4 +14,5 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/main.css"],
+  serverMiddleware: ["~/server/openai-api.js"],
 });
