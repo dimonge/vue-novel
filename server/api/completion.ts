@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default defineLazyEventHandler(async () => {
   const apiKey = process.env.OPENAI_API_KEY;
-  //const apiKey = useRuntimeConfig().openaiApiKey;
+
   if (!apiKey) throw new Error("Missing OpenAI API key");
 
   return defineEventHandler(async (event) => {
@@ -11,8 +11,6 @@ export default defineLazyEventHandler(async () => {
       messages: string;
     };
     try {
-      //const apiKey = "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"; //process.env.VUE_APP_OPEN_API_KEY
-      // Ask OpenAI for a streaming chat completion given the prompt
       const response = await axios.post(
         "https://api.openai.com/v1/completions",
         {
