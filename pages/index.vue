@@ -1,15 +1,12 @@
 <template>
   <div class="flex justify-center m-4">
-    <VueNovel></VueNovel>
+    <vue-novel></vue-novel>
   </div>
 </template>
 
 <script lang="ts">
-import { VueNovel } from "vue-novel";
 export default defineComponent({
-  components: {
-    VueNovel,
-  },
+  components: {},
 });
 </script>
 
