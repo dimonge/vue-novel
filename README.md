@@ -74,7 +74,6 @@ Vue Novel is built on top of some amazing open-source projects and AI technologi
 If you have any questions or need support, you can reach us through the following channels:
 
 - Issues: If you encounter any bugs or have feature requests, please submit an issue on the [GitHub repository](https://github.com/your-github-repo/issues).
-- Email: You can also reach out to us via email at [your-email@example.com](mailto:your-email@example.com).
-- Discord: Join our community Discord server at [discord.gg/novelvue](https://discord.gg/novelvue) to connect with other users and get help.
+- Email: You can also reach out to us via email at [info@thevinelabs.com](mailto:info@thevinelabs.com).
 
 We appreciate your interest and contributions to Vue Novel. Happy writing and editing!
