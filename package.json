@@ -56,6 +56,6 @@
     "radix-vue": "^0.1.30",
     "tippy.js": "^6.3.7",
     "tiptap-markdown": "^0.8.2",
-    "vue-novel": "file:packages/vue-novel/vue-novel-0.0.6.tgz"
+    "vue-novel": "^0.0.7"
   }
 }
