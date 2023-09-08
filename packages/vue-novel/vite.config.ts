@@ -11,9 +11,9 @@ export default defineConfig({
   logLevel: 'info',
   build: {
     lib: {
-      entry: fileURLToPath(new URL('./src/novel.ts', import.meta.url)),
-      name: 'NovelVue',
-      fileName: 'novel-vue'
+      entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+      name: 'VueNovel',
+      fileName: (format) => `vue-novel.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],

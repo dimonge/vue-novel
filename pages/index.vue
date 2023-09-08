@@ -1,16 +1,16 @@
 <template>
   <div class="flex justify-center m-4">
-    <NovelEditor></NovelEditor>
+    <VueNovel></VueNovel>
   </div>
 </template>
 
 <script lang="ts">
-import novelEditorVue from "~/packages/vue-novel/src/components/novel-editor.vue";
-export default {
+import { VueNovel } from "vue-novel";
+export default defineComponent({
   components: {
-    NovelEditor: novelEditorVue,
+    VueNovel,
   },
-};
+});
 </script>
 
 <style></style>

@@ -76,7 +76,7 @@ import { fetchCompletion } from '../utils/completion-ai'
 import { defaultEditorContent } from '../editor/default-content'
 
 export default defineComponent({
-  name: 'VueNovel',
+  name: 'NovelEditor',
   components: {
     EditorContent,
     BubbleMenu,

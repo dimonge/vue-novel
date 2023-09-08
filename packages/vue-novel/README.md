@@ -7,7 +7,7 @@ Novel Vue is an open-source plugin inspired by Novel that brings an AI-powered e
 To install Novel Vue, you can use npm:
 
 ```
-npm install novel-vue
+npm install vue-novel
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install novel-vue
 You can import Novel Vue into your Vue components like this:
 
 ```js
-import NovelVue from 'novel-vue'
+import NovelVue from 'vue-novel'
 
 export default {
   components: {
@@ -25,12 +25,12 @@ export default {
 }
 ```
 
-Then, you can use the `novel-vue` component in your template:
+Then, you can use the `vue-novel` component in your template:
 
 ```html
 <template>
   <div>
-    <novel-vue />
+    <vue-novel />
   </div>
 </template>
 ```

@@ -1,20 +1,20 @@
 {
   "name": "vue-novel",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/novel-vue.umd.cjs",
-  "module": "./dist/novel-vue.js",
+  "main": "./dist/vue-novel.umd.js",
+  "types": "./dist/vue-novel.d.ts",
+  "module": "./dist/vue-novel.es.js",
   "license": "MIT",
   "exports": {
     ".": {
-      "import": "./dist/novel-vue.js",
-      "require": "./dist/novel-vue.umd.cjs"
+      "import": "./dist/vue-novel.es.js",
+      "require": "./dist/vue-novel.umd.js"
     },
-    "./style.css": "./dist/style.css",
-    "./index.html": "./dist/index.html"
+    "./style.css": "./dist/style.css"
   },
   "publishConfig": {
     "access": "public"

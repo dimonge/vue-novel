@@ -1,4 +1,4 @@
-import { Extension, Range } from '@tiptap/core'
+import { Extension, type Range } from '@tiptap/core'
 import Suggestion from '@tiptap/suggestion'
 import { Editor } from '@tiptap/vue-3'
 

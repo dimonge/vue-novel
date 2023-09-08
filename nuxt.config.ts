@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["radix-vue"],
   },
+  plugins: ["~/plugins/vue-novel.ts"],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -14,5 +15,4 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/main.css"],
-  serverMiddleware: ["~/server/openai-api.js"],
 });

@@ -1,10 +1,11 @@
 {
-  "name": "nuxt-app-template",
+  "name": "nuxt-novel-editor-template",
   "keywords": [
     "ai",
     "nuxt",
-    "text-editor",
-    "vue"
+    "ai-editor",
+    "vue",
+    "novel"
   ],
   "private": true,
   "scripts": {
@@ -54,6 +55,7 @@
     "openai": "^4.4.0",
     "radix-vue": "^0.1.30",
     "tippy.js": "^6.3.7",
-    "tiptap-markdown": "^0.8.2"
+    "tiptap-markdown": "^0.8.2",
+    "vue-novel": "file:packages/vue-novel/vue-novel-0.0.6.tgz"
   }
 }
