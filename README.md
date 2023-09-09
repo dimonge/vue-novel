@@ -19,20 +19,6 @@ import { VueNovelPlugin } from "vue-novel";
 app.use(VueNovelPlugin);
 ```
 
-or you can import Vue Novel into your Vue components like this:
-
-```js
-import "vue-novel/style.css";
-import { VueNovel } from "vue-novel";
-
-export default {
-  components: {
-    VueNovel,
-  },
-  // ...
-};
-```
-
 Then, you can use the `vue-novel` component in your template:
 
 ```html
@@ -41,6 +27,26 @@ Then, you can use the `vue-novel` component in your template:
     <vue-novel />
   </div>
 </template>
+```
+
+or you can import Vue Novel into your Vue components like this:
+
+```js
+import "vue-novel/style.css";
+import { Editor } from "vue-novel";
+
+export default {
+  components: {
+    Editor,
+  },
+  // ...
+};
+
+<template>
+  <div>
+    <Editor />
+  </div>
+</template>;
 ```
 
 ## Features
