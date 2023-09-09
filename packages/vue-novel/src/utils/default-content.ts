@@ -27,24 +27,8 @@ export const defaultEditorContent = {
         },
         {
           type: 'text',
-          text: " is a Notion-style WYSIWYG editor with AI-powered autocompletion. Inspired by Steven Tey's "
+          text: " is a Vue based Notion-style WYSIWYG editor with AI-powered autocompletion. Inspired by Steven Tey's Novel AI powered Editor. This Editor is built with"
         },
-        {
-          type: 'text',
-          marks: [
-            {
-              type: 'link',
-              attrs: {
-                href: 'https://github.com/steven-tey/novel',
-                target: '_blank',
-                class:
-                  'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer'
-              }
-            }
-          ],
-          text: 'Novel AI powered Editor'
-        },
-        { type: 'text', text: '. This Editor is built with' },
         {
           type: 'text',
           marks: [
