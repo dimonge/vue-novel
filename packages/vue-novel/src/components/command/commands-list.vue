@@ -10,7 +10,7 @@
       >
         <div class="flex flex-row">
           <component v-if="item.icon" :is="item.icon" class="w-5 h-5 mr-2" />
-          {{ item.title }}
+          {{ item?.title }}
         </div>
       </button>
     </template>
