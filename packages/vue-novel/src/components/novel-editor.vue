@@ -43,7 +43,9 @@
 </template>
 
 <script lang="ts">
+import '../styles/index.css'
 import '../styles/tailwind.css'
+import '../styles/editor.css'
 import { defineComponent } from 'vue'
 import { useEditor, EditorContent, BubbleMenu, Editor, FloatingMenu } from '@tiptap/vue-3'
 import { InputRule } from '@tiptap/core'
@@ -73,7 +75,7 @@ import {
 import SlashCommand from './command/commands.js'
 import suggestion from './command/suggestion.js'
 import { fetchCompletion } from '../utils/completion-ai'
-import { defaultEditorContent } from '../editor/default-content'
+import { defaultEditorContent } from '../utils/default-content'
 
 export default defineComponent({
   name: 'NovelEditor',
@@ -402,26 +404,6 @@ export default defineComponent({
   h5,
   h6 {
     line-height: 1.1;
-  }
-
-  code {
-    background-color: rgba(#616161, 0.1);
-    color: #616161;
-  }
-
-  pre {
-    background: #0d0d0d;
-    border-radius: 0.5rem;
-    color: #fff;
-    font-family: 'JetBrainsMono', monospace;
-    padding: 0.75rem 1rem;
-
-    code {
-      background: none;
-      color: inherit;
-      font-size: 0.8rem;
-      padding: 0;
-    }
   }
 
   mark {

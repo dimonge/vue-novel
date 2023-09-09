@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-novel-editor-template",
+  "keywords": [
+    "ai",
+    "nuxt",
+    "ai-editor",
+    "vue",
+    "novel"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.15",
+    "nuxt": "^3.7.0",
+    "postcss": "^8.4.29",
+    "sass": "^1.66.1",
+    "tailwindcss": "^3.3.3",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "~5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "vue-novel": "^0.0.8"
+  }
+}
