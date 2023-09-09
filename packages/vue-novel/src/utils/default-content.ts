@@ -223,33 +223,6 @@ export const defaultEditorContent = {
               ]
             }
           ]
-        },
-        {
-          type: 'taskItem',
-          attrs: { checked: false },
-          content: [
-            {
-              type: 'paragraph',
-              content: [
-                {
-                  type: 'text',
-                  marks: [
-                    {
-                      type: 'link',
-                      attrs: {
-                        href: 'https://vercel.com/templates/next.js/novel',
-                        target: '_blank',
-                        class:
-                          'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer'
-                      }
-                    }
-                  ],
-                  text: 'Deploy your own'
-                },
-                { type: 'text', text: ' to Vercel' }
-              ]
-            }
-          ]
         }
       ]
     }
