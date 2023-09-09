@@ -6,4 +6,5 @@
 
 <script lang="ts">
 import "vue-novel/style.css";
+export default {};
 </script>
