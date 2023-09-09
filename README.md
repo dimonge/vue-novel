@@ -15,21 +15,22 @@ npm install vue-novel
 You can register the Novel plugin in your app's root
 
 ```js
-import { VueNovelPlugin } from 'vue-novel'
-app.use(VueNovelPlugin)
+import { VueNovelPlugin } from "vue-novel";
+app.use(VueNovelPlugin);
 ```
 
 or you can import Vue Novel into your Vue components like this:
 
 ```js
-import { VueNovel } from 'vue-novel'
+import "vue-novel/style.css";
+import { VueNovel } from "vue-novel";
 
 export default {
   components: {
-    VueNovel
-  }
+    VueNovel,
+  },
   // ...
-}
+};
 ```
 
 Then, you can use the `vue-novel` component in your template:
