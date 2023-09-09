@@ -9,8 +9,6 @@
   ],
   "private": true,
   "scripts": {
-    "app:dir": "cd packages/ai-editor-app/",
-    "lib:dir": "cd packages/vue-novel/",
     "build": "cd packages/ai-editor-app/ && npm run build",
     "dev": "cd packages/ai-editor-app/ && npm run dev",
     "package-lib": "cd packages/vue-novel/ && npm run build && npm publish && cd ../..",
