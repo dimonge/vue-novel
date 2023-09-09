@@ -16,6 +16,25 @@ export const defaultEditorContent = {
             {
               type: 'link',
               attrs: {
+                href: 'https://github.com/dimonge/vue-novel',
+                target: '_blank',
+                class:
+                  'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer'
+              }
+            }
+          ],
+          text: 'Vue-Novel'
+        },
+        {
+          type: 'text',
+          text: " is a Notion-style WYSIWYG editor with AI-powered autocompletion. Inspired by Steven Tey's "
+        },
+        {
+          type: 'text',
+          marks: [
+            {
+              type: 'link',
+              attrs: {
                 href: 'https://github.com/steven-tey/novel',
                 target: '_blank',
                 class:
@@ -23,12 +42,9 @@ export const defaultEditorContent = {
               }
             }
           ],
-          text: 'Novel'
+          text: 'Novel AI powered Editor'
         },
-        {
-          type: 'text',
-          text: ' is a Notion-style WYSIWYG editor with AI-powered autocompletion. Built with '
-        },
+        { type: 'text', text: '. This Editor is built with' },
         {
           type: 'text',
           marks: [
@@ -42,7 +58,7 @@ export const defaultEditorContent = {
               }
             }
           ],
-          text: 'Tiptap'
+          text: ' Tiptap'
         },
         { type: 'text', text: ' + ' },
         {
@@ -51,14 +67,14 @@ export const defaultEditorContent = {
             {
               type: 'link',
               attrs: {
-                href: 'https://sdk.vercel.ai/docs',
+                href: 'https://platform.openai.com/docs/guides/gpt/completions-api',
                 target: '_blank',
                 class:
                   'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer'
               }
             }
           ],
-          text: 'Vercel AI SDK'
+          text: 'Open AI Completion API'
         },
         { type: 'text', text: '.' }
       ]
@@ -71,7 +87,7 @@ export const defaultEditorContent = {
     {
       type: 'codeBlock',
       attrs: { language: null },
-      content: [{ type: 'text', text: 'npm i novel' }]
+      content: [{ type: 'text', text: 'npm i vue-novel' }]
     },
     {
       type: 'heading',
@@ -79,12 +95,32 @@ export const defaultEditorContent = {
       content: [{ type: 'text', text: 'Usage' }]
     },
     {
+      type: 'paragraph',
+      content: [{ type: 'text', text: "You can register the Novel plugin in your app's root" }]
+    },
+    {
       type: 'codeBlock',
       attrs: { language: null },
       content: [
         {
           type: 'text',
-          text: 'import { Editor } from "novel";\n\nexport default function App() {\n  return (\n     <Editor />\n  )\n}'
+          text: 'import { VueNovelPlugin } from "vue-novel";\n\napp.use(VueNovelPlugin);\n'
+        }
+      ]
+    },
+    {
+      type: 'paragraph',
+      content: [
+        { type: 'text', text: 'Then, you can use the `vue-novel` component in your template:' }
+      ]
+    },
+    {
+      type: 'codeBlock',
+      attrs: { language: null },
+      content: [
+        {
+          type: 'text',
+          text: '<template>\n  <div class="flex justify-center m-4">\n    <vue-novel></vue-novel>\n  </div>\n</template>\n\n<script lang="ts">\nimport "vue-novel/style.css";\n</script>'
         }
       ]
     },
@@ -111,14 +147,7 @@ export const defaultEditorContent = {
           content: [
             {
               type: 'paragraph',
-              content: [
-                { type: 'text', text: 'AI autocomplete (type ' },
-                { type: 'text', marks: [{ type: 'code' }], text: '++' },
-                {
-                  type: 'text',
-                  text: ' to activate, or select from slash menu)'
-                }
-              ]
+              content: [{ type: 'text', text: 'AI autocomplete (select from slash menu)' }]
             }
           ]
         },
@@ -130,7 +159,7 @@ export const defaultEditorContent = {
               content: [
                 {
                   type: 'text',
-                  text: 'Image uploads (drag & drop / copy & paste, or select from slash menu) '
+                  text: 'More features will be released this September. Stay tuned!'
                 }
               ]
             }
@@ -198,7 +227,7 @@ export const defaultEditorContent = {
                     {
                       type: 'link',
                       attrs: {
-                        href: 'https://www.npmjs.com/package/novel',
+                        href: 'https://www.npmjs.com/package/vue-novel',
                         target: '_blank',
                         class:
                           'text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer'

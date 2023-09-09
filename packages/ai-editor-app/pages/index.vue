@@ -6,9 +6,4 @@
 
 <script lang="ts">
 import "vue-novel/style.css";
-export default defineComponent({
-  components: {},
-});
 </script>
-
-<style></style>

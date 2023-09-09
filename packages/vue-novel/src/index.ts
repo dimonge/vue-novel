@@ -1,4 +1,4 @@
-import { VueNovelPlugin } from './vue-novel'
-import VueNovel from './components/novel-editor.vue'
+import { VueNovelPlugin } from './vue-novel.plugin'
+import Editor from './components/editor.vue'
 
-export { VueNovelPlugin, VueNovel }
+export { VueNovelPlugin, Editor }

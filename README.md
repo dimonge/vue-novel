@@ -23,7 +23,7 @@ or you can import Vue Novel into your Vue components like this:
 
 ```js
 import "vue-novel/style.css";
-import { VueNovel } from "vue-novel";
+import { Editor } from "vue-novel";
 
 export default {
   components: {
