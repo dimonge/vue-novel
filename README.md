@@ -2,7 +2,7 @@
 
 Vue Novel is an open-source plugin inspired by Novel that brings an AI-powered editor to any Vue or NuxtJS based web application. It offers various features and functionalities to enhance the content creation and editing experience. You can also use the example Nuxtjs project as the based for your project.
 
-Demo runs at [https://vue-novel.vercel.app/](here)
+Demo runs at [here](https://vue-novel.vercel.app/)
 
 ## Installation
 
