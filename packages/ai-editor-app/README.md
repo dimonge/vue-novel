@@ -32,21 +32,21 @@ Then, you can use the `vue-novel` component in your template:
 or you can import Vue Novel into your Vue components like this:
 
 ```js
-import "vue-novel/style.css";
-import { Editor } from "vue-novel";
+import 'vue-novel/style.css'
+import { Editor } from 'vue-novel'
 
 export default {
   components: {
-    Editor,
-  },
+    Editor
+  }
   // ...
-};
+}
 
 <template>
   <div>
     <Editor />
   </div>
-</template>;
+</template>
 ```
 
 ## Features
@@ -63,9 +63,7 @@ Vue Novel offers the following features:
 
 ## Contributing
 
-Contributions to Vue Novel are welcome! If you have any ideas, bug reports, or feature requests, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/your-github-repo).
-
-Before contributing, please make sure to read the [contribution guidelines](CONTRIBUTING.md).
+Contributions to Vue Novel are welcome! If you have any ideas, bug reports, or feature requests, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/dimonge/vue-novel/issues).
 
 ## License
 
@@ -79,8 +77,7 @@ Vue Novel is built on top of some amazing open-source projects and AI technologi
 
 If you have any questions or need support, you can reach us through the following channels:
 
-- Issues: If you encounter any bugs or have feature requests, please submit an issue on the [GitHub repository](https://github.com/your-github-repo/issues).
+- Issues: If you encounter any bugs or have feature requests, please submit an issue on the [GitHub repository](https://github.com/dimonge/vue-novel/issues).
 - Email: You can also reach out to us via email at [info@thevinelabs.com](mailto:info@thevinelabs.com).
-- Discord: Join our community Discord server at [discord.gg/novelvue](https://discord.gg/novelvue) to connect with other users and get help.
 
 We appreciate your interest and contributions to Vue Novel. Happy writing and editing!

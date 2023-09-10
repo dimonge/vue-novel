@@ -65,8 +65,6 @@ Vue Novel offers the following features:
 
 Contributions to Vue Novel are welcome! If you have any ideas, bug reports, or feature requests, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/dimonge/vue-novel/issues).
 
-Before contributing, please make sure to read the [contribution guidelines](CONTRIBUTING.md).
-
 ## License
 
 Vue Novel is open-source software licensed under the [MIT License](LICENSE).
