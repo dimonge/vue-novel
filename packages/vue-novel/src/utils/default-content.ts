@@ -5,7 +5,7 @@ export const defaultEditorContent = {
     {
       type: 'heading',
       attrs: { level: 2 },
-      content: [{ type: 'text', text: 'Introducing Novel' }]
+      content: [{ type: 'text', text: 'Introducing Vue-Novel' }]
     },
     {
       type: 'paragraph',
@@ -80,7 +80,7 @@ export const defaultEditorContent = {
     },
     {
       type: 'paragraph',
-      content: [{ type: 'text', text: "You can register the Novel plugin in your app's root" }]
+      content: [{ type: 'text', text: "You can register the Vue Novel plugin in your app's root" }]
     },
     {
       type: 'codeBlock',
@@ -150,16 +150,6 @@ export const defaultEditorContent = {
           ]
         }
       ]
-    },
-    {
-      type: 'image',
-      attrs: {
-        src: 'https://public.blob.vercel-storage.com/pJrjXbdONOnAeZAZ/banner-2wQk82qTwyVgvlhTW21GIkWgqPGD2C.png',
-        alt: 'banner.png',
-        title: 'banner.png',
-        width: null,
-        height: null
-      }
     },
     { type: 'horizontalRule' },
     {
